@@ -1,0 +1,184 @@
+# INHERITANCE
+# It means one class (child) can reuse the properties and behaviour (i.e., attributes and methods) of another class (parent)
+
+# Syntax
+# class Parent:
+    # parent properties / methods
+
+# class Child(Parent):
+    # child can use parent's properties / methods
+
+# WHY USE INHERITANCE
+# 1. Code reusability
+# 2. Easier maintenance
+# 3. Clear Hierarchy
+# 4. Real world modeling
+
+class Animal:
+    def sound(self):  #parent property
+        print("Some sound")
+class Dog(Animal):
+    def sound(self): #overriden by dog
+        print("Dogs bark")
+class Cat(Animal):
+    def sound(self): #overriden by cat
+        print("Cats Meow")
+
+d = Dog()
+d.sound()
+
+c = Cat()
+c.sound()
+
+#TYPES OF INHERITANCE
+# 1. SINGLE INHERITANCE << ONE PARENT CLASS TO ONE CHILD CLASS (A --> B)
+
+class Parent():
+    def show(self):
+        print("This is parent property")
+class Child(Parent):
+    def display(self):
+        print("This is child property")
+
+obj = Child()
+obj.show()
+obj.display()
+
+# 2. MULTILEVEL INHERITANCE << THREE TIER (A---> B----> C)
+
+class GrandParent():
+    def prop(self):
+        print("This is Grand parent")
+class Parent(GrandParent):
+    def show(self):
+        print("This is Parent")
+class Child(Parent):
+    def display(self):
+        print("This is Child")
+
+c1 = Child()
+c1.prop()
+c1.show()
+c1.display()
+
+# 3. HEIRARCHICAL INHERITANCE << FROM ONE PARENT TO TWO OR MORE CHILD (A--->B, A---> C)
+
+class Food:
+    def item(self):
+        print("We can eat.")
+class FastFood(Food):
+    def taste(self):
+        print("So tasty when we eat.")
+class HealthyFood(Food):
+    def health(self):
+        print("So healthy to eat.")
+
+momo = FastFood()
+avocado = HealthyFood()
+momo.item()
+momo.taste()
+avocado.item()
+avocado.health()
+
+# 4. MULTIPLE INHERITANCE << FROM TWO PARENT CLASS TO ONE CHILD CLASS (A + B ----> C)
+class Instagram:
+    def Reels(self):
+        print("For reels use Instagram.")
+class Whatsapp:
+    def group(self):
+        print("For group and discussion use whatsapp")
+class SocialMedia(Instagram, Whatsapp):
+    def Social(self):
+        print("These are soical media...")
+
+sc = SocialMedia()
+sc.group()
+sc.Reels()
+sc.Social()
+
+
+# SUPER() KEYWORD << TO CALL METHODS FROM PARENT CLASS
+
+class A:
+    def greet(self):
+        print("Hello from A")
+class B(A):
+    def greet(self):
+        super().greet()
+        print("Hello from B")
+
+b = B()
+b.greet()
+
+class Parent():
+    def show(self):
+        print("This is parent property")
+class Child(Parent):
+    def show(self):
+        super().show()
+        print("This is child property")
+
+obj = Child()
+obj.show()
+
+# EXAMPLE << VEHICLE QUALITIES
+
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+    def start(self):
+        print(f"{self.brand} {self.model} is starting..... Vroom Vroom")
+class Car(Vehicle):
+    def sun_roof(self):
+        print("Sun roof is opening...")
+class Bike(Vehicle):
+    def kick_start(self):
+        print("Bike with one kick started !!")
+
+c = Car("Land Rover", "Defender")
+c.start()
+c.sun_roof()
+
+b = Bike("Royal Enfield", "Hunter 350")
+b.start()
+b.kick_start()
+
+# EXAMPLE << EMPLOYEE MANAGEMENT SYSTEM
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def intro(self):
+        print(f"Heyaa My self {self.name}...")
+class Employee(Person):
+    def __init__(self, name, role):
+        super().__init__(name)
+        self.role = role
+    def details(self):
+        print(f"I am {self.role}...")
+
+E1 = Employee("Anu", "Backend Developer")
+E1.intro()
+E1.details()
+
+# EXAMPLE << PAYMENT SYSTEM
+
+class Payment:
+    def pay(self, amount):
+        print(f"Paid Rs.{amount}")
+class Card(Payment):
+    def validate_card(self):
+        print("Card Validated")
+class UPI(Payment):
+    def verified(self):
+        print("UPI verified")
+
+p1 = Card()
+p1.validate_card()
+p1.pay(10000)
+
+p2 = UPI()
+p2.verified()
+p2.pay(5000)
+

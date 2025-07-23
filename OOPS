@@ -5,12 +5,22 @@
 
 # Class and objects
 # Class = blueprint or template
+# it define how somethings should be, but its not the thing itself.
+
+# Syntax
+# class ClassName:  << with camel case
+
 # Object = Actual instance made from the class
 
+# OBJECT >> An object is a concrete instance of a class. Actual things created using class.
+
+# Syntax :
+# my_obj = CLassName()
+
 class Car:
-    def __init__(self, brand, colour):
-        self.brand = brand
-        self.colour = colour
+    def __init__(self, brand, colour):  # methods (function defined inside class)
+        self.brand = brand   # atrribute
+        self.colour = colour   #attribute
 
     def drive(self):
         print(f"{self.colour} {self.brand} is driving...")
@@ -37,7 +47,114 @@ class Fruits:
         self.colour = colour
 
     def fruits_info(self):
-        print(f"{self.name} is of {self.colour}")
+        print(f"{self.name} is of {self.colour} colour")
 
-my_fav_fruit = Fruits("Apple", "red")
+my_fav_fruit = Fruits("Litchi", "red")
 my_fav_fruit.fruits_info()
+
+# ABSTRACTION 
+# Hiding complex details and only show the essential features.
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14*self.radius * self.radius
+    
+c= Circle(5)
+print("The area of circle is ", c.area())
+
+
+# CONSTRUCTOR (__init__)
+
+# Automatically runs when you create an object
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        print(f" Student name is {self.name}")
+
+
+s = Student("Destiny :)")
+s.show()
+
+# SELF KEYWORD >> refers to the current object. Its how python internally links data to functions in classes.
+
+
+# MAGIC METHODS (__str__, __len__, etc)
+
+# Pythons has built-in methods that let objects behave like built-ins
+
+class Book:
+    def __init__(self, title):
+        self.title = title
+
+    def __str__(self):
+        return f"Book : {self.title}"
+    
+b = Book("The True Destiny.")
+print(b)
+
+
+# WHY USE OOPs?
+# 1. Reusability of code in clear and consize manner
+# 2. Code clarity and organization
+# 3. Easy to scale large projects
+# 4. Real world modelling
+
+# Example 1:
+
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def bark(self):
+        print(f"{self.name} says : Woooff!!")
+
+#creating object
+my_dog = Dog("Pogo", "Labrador")
+
+#Access attributes
+print("Dog name : ", my_dog.name)
+print("Dog Breed : ", my_dog.breed)
+
+# call method 
+
+my_dog.bark()
+
+
+#  PROJECT 1 << GRADE USING CLASS
+
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def show_grades(self):
+        if self.marks >= 90 :
+            print(f"{self.name} got {self.marks} with A grade !!")
+
+        elif self.marks >= 75:
+            print(f"{self.name} got {self.marks} with B grade !!")
+
+        elif self.marks >= 50:
+            print(f"{self.name} got {self.marks} with C grade!!")
+
+        else :
+            print(f"{self.name} with {self.marks} needs improvements !!")
+
+
+s1 = Student("Marie", 91)
+s1.show_grades()
+

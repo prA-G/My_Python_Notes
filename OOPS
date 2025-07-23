@@ -25,7 +25,7 @@ class Friend:
         self.city = city
 
     def frnd_info(self):
-        print(f"My friend {self.name}, who lives in {self.city} is coming to meet me.")
+        print(f"My friend {self.name}, who lives in {self.city} is coming to meet me.....")
 
 my_friend = Friend("Anuragg", "Gkp")
 my_friend.frnd_info()

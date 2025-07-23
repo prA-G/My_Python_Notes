@@ -1,0 +1,31 @@
+# What is OOPS?
+# A programming paradigm where everything is based on objects-instances of classes that bundle data and functions together.
+# Example Objects = student, car, bank account ---- Attribute = data ---- Methods = actions
+
+
+# Class and objects
+# Class = blueprint or template
+# Object = Actual instance made from the class
+
+class Car:
+    def __init__(self, brand, colour):
+        self.brand = brand
+        self.colour = colour
+
+    def drive(self):
+        print(f"{self.colour} {self.brand} is driving...")
+
+my_car = Car("BMW", "Black")
+my_car.drive()
+
+
+class Friend:
+    def __init__(self, name, city):
+        self.name = name
+        self.city = city
+
+    def frnd_info(self):
+        print(f"My friend {self.name}, who lives in {self.city} is coming to meet me.")
+
+my_friend = Friend("Anuragg", "Gkp")
+my_friend.frnd_info()
